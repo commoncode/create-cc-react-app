@@ -1,0 +1,26 @@
+{
+    "prod": [
+        "redux",
+        "react-redux",
+        "redux-saga",
+        "react-router",
+        "react-router-dom",
+        "reselect",
+        "styled-components",
+        "@fortawesome/fontawesome-svg-core",
+        "@fortawesome/free-solid-svg-icons",
+        "@fortawesome/react-fontawesome",
+        "formik"
+    ],
+    "dev": [
+        "prettier",
+        "eslint@5.6.0",
+        "eslint-config-airbnb",
+        "eslint-config-prettier",
+        "eslint-plugin-import",
+        "eslint-plugin-jsx-a11y",
+        "eslint-plugin-prettier",
+        "eslint-plugin-react",
+        "husky"
+    ]
+}

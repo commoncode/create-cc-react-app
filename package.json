@@ -1,0 +1,26 @@
+{
+  "name": "create-cc-react-app",
+  "version": "1.0.0",
+  "description": "CC react project template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commoncode/create-cc-react-app.git"
+  },
+  "author": "Phoebe Lew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/commoncode/create-cc-react-app/issues"
+  },
+  "homepage": "https://github.com/commoncode/create-cc-react-app#readme",
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "shelljs": "^0.8.3"
+  },
+  "bin": {
+    "create-cc-react-app": "index.js"
+  }
+}

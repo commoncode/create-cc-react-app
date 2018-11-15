@@ -1,0 +1,62 @@
+{
+    "parser": "babel-eslint",
+    "extends": ["airbnb", "prettier"],
+    "plugins": ["prettier"],
+    "rules": {
+      "prettier/prettier": ["error"],
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+      "prefer-destructuring": ["error", { "object": true, "array": false }],
+      "react/require-default-props": 0,
+      "react/forbid-prop-types": 0,
+      "react/jsx-one-expression-per-line": 0,
+      "no-unused-vars": [
+        "error",
+        { "vars": "all", "args": "after-used", "ignoreRestSiblings": false, "varsIgnorePattern": "[iI]gnored" },
+      ],
+      "no-unused-expressions": [
+        "error",
+        {
+          "allowTaggedTemplates": true,
+          "allowTernary": true,
+          "allowShortCircuit": true
+        }
+      ],
+      "import/no-cycle": 0,
+      "react/no-unescaped-entities": 1,
+      "no-use-before-define": 1,
+      "no-plusplus": 1,
+      "no-unneeded-ternary": 1,
+      "no-case-declarations": 0,
+      "no-param-reassign": 0,
+      "guard-for-in": 0,
+      "no-restricted-syntax": 0,
+      "no-prototype-builtins": 0,
+      "no-nested-ternary": 0,
+      "consistent-return": 0,
+      "camelcase": 0,
+      "import/prefer-default-export": 0,
+      "no-shadow": 0,
+      "global-require": 0,
+      "no-return-assign": 0,
+      "react/jsx-no-bind": 0,
+      "no-else-return": 0,
+      "jsx-a11y/click-events-have-key-events": 0,
+      "jsx-a11y/no-static-element-interactions": 0,
+      "new-cap": 0,
+      "react/no-array-index-key": 0
+    },
+    "settings": {
+      "import/core-modules": ["prop-types", "lodash"],
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": ["node_modules", "src/"]
+        }
+      }
+    },
+    "env": {
+      "browser": true,
+      "jest": true
+    }
+  }
+  
