@@ -1,15 +1,19 @@
 {
     "scripts" : {
-    "lint": "eslint src",
-    "lint:fix": "eslint --fix src",
-    "precommit": "lint-staged",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+        "lint": "eslint src",
+        "lint:fix": "eslint --fix src",
+        "storybook": "start-storybook -p 9009 -s public",
+        "build-storybook": "build-storybook -s public"
     },
     "lint-staged": {
         "*.{js}": [
           "yarn lint:fix",
           "git add"
         ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
     }
 }

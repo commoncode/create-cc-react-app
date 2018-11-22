@@ -68,6 +68,7 @@ const installRequirements = async () => {
       ...basePackageJson.scripts,
       ...SCRIPTS.scripts,
     },
+    husky: SCRIPTS["husky"],
     "lint-staged": SCRIPTS["lint-staged"],
   };
   fs.writeFileSync(
