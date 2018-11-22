@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/commoncode/create-cc-react-app#readme",
   "dependencies": {
+    "colors": "^1.3.2",
     "fs-extra": "^7.0.1",
     "shelljs": "^0.8.3"
   },

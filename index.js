@@ -2,6 +2,7 @@
 
 const shell = require("shelljs");
 const fs = require("fs-extra");
+const colors = require("colors");
 
 const REQS = require("./requirements/dev.json");
 const SCRIPTS = require("./misc/scripts.json");
@@ -16,9 +17,10 @@ const createReactApp = () => {
         resolve(true);
       });
     } else {
-      console.log("No app name was provided.");
-      console.log("Provide an app name in the following format: ");
-      console.log("create-cc-react-app ", "app-name");
+      logToConsole(
+        "No app name was provided.\nProvide an app name in the following format: \ncreate-cc-react-app app-name",
+        true,
+      );
       resolve(false);
     }
   });
@@ -26,12 +28,12 @@ const createReactApp = () => {
 
 const installPackages = (req, dev = false) => {
   return new Promise(resolve => {
-    console.log(`Installing package: ${req}`);
     shell.exec(
       `yarn add ${req} ${dev ? "--dev" : ""}`,
       { cwd: APP_ROOT },
-      () => {
-        resolve();
+      error => {
+        if (error) resolve(false);
+        resolve(true);
       },
     );
   });
@@ -39,16 +41,24 @@ const installPackages = (req, dev = false) => {
 
 const installRequirements = async () => {
   const prodString = REQS.prod.join(" ");
-  await installPackages(prodString);
+  logToConsole("Installing packages...");
+  if (!(await installPackages(prodString))) {
+    logToConsole("Error installing packages", true);
+    process.exit(1);
+  }
 
   const devString = REQS.dev.join(" ");
-  await installPackages(devString, true);
+  logToConsole("Installing dev packages...");
+  if (!(await installPackages(devString, true))) {
+    logToConsole("Error installing dev packages", true);
+    process.exit(1);
+  }
 
-  console.log("Adding config files...");
+  logToConsole("Adding config files...");
   shell.cp("-rf", `${__dirname}/config/.*`, APP_ROOT);
   shell.cp("-rf", `${__dirname}/config/*`, APP_ROOT);
 
-  console.log("Customizing yarn scripts...");
+  logToConsole("Customizing yarn scripts...");
   const basePackageJson = JSON.parse(
     fs.readFileSync(`${APP_ROOT}/package.json`),
   );
@@ -66,8 +76,16 @@ const installRequirements = async () => {
   );
 };
 
+const logToConsole = (text, error = false) => {
+  console.log("**************************************************");
+  console.log();
+  console.log(error ? colors.red(text) : colors.green(text));
+  console.log();
+  console.log("**************************************************");
+};
+
 const scaffoldProject = () => {
-  console.log("Scaffolding templates...");
+  logToConsole("Scaffolding templates...");
   shell.rm("-rf", `${APP_ROOT}/src/*`);
   shell.rm("-f", `${APP_ROOT}/public/index.html`);
   shell.cp(
@@ -79,14 +97,16 @@ const scaffoldProject = () => {
 };
 
 const run = async () => {
+  logToConsole("Creating base CRA...");
   let success = await createReactApp();
   if (!success) {
-    console.error("Error running create-react-app");
-    return false;
+    logToConsole("Error running create-react-app", true);
+    process.exit(1);
   }
 
   await installRequirements();
-  await scaffoldProject();
+  scaffoldProject();
+  process.exit(0);
 };
 
 run();
