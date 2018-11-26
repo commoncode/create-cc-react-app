@@ -52,7 +52,6 @@ class Login extends React.Component {
     const { isAuthenticated, location, isFetching } = this.props;
     const { from } = location.state || { from: { pathname: "/" } };
     const responseError = {};
-    const responseError = {};
     ({
       responseError: responseError.email,
       responseError: responseError.password,
