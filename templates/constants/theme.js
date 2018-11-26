@@ -22,8 +22,6 @@ export const fontWeights = {
   bold: 700,
 };
 
-export const baseLineHeight = 1.5;
-
 const lightCoral = "#F48080";
 const burntSienna = "#E27E51";
 const puertoRico = "#40C1AC";
@@ -71,17 +69,13 @@ export const shadows = [
   `0 1px 3px 0 rgba(200,200,200,0.59)`,
 ];
 
-export const transitions = ["all 200ms ease-in-out"];
-
 export default {
   breakpoints,
   space,
   fontSizes,
   fontWeights,
   fonts,
-  baseLineHeight,
   colors,
   radii,
   shadows,
-  transitions,
 };
