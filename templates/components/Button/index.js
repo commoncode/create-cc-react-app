@@ -1,9 +1,4 @@
 import styled from "styled-components";
-import Clickable from "./Clickable";
-import OutlineButton from "./OutlineButton";
-import WideButton from "./WideButton";
-import HideShowButton from "./HideShowButton";
-import IconTextButton from "./IconTextButton";
 
 const Button = styled.button`
   opacity: ${({ disabled }) => (disabled ? 0.25 : 1)};
@@ -24,7 +19,5 @@ const Button = styled.button`
     opacity: 0.5;
   }
 `;
-
-export { Clickable, OutlineButton, WideButton, HideShowButton, IconTextButton };
 
 export default Button;

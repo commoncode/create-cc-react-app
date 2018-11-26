@@ -52,8 +52,11 @@ class Login extends React.Component {
     const { isAuthenticated, location, isFetching } = this.props;
     const { from } = location.state || { from: { pathname: "/" } };
     const responseError = {};
-    // eslint-disable-next-line
-    responseError.email = responseError.password = this.props.responseError;
+    const responseError = {};
+    ({
+      responseError: responseError.email,
+      responseError: responseError.password,
+    } = this.props);
 
     if (isAuthenticated) {
       return <Redirect to={from} />;

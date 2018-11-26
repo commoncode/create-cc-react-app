@@ -22,6 +22,7 @@
         "eslint-plugin-prettier",
         "eslint-plugin-react",
         "husky",
-        "lint-staged"
+        "lint-staged",
+        "redux-devtools-extension"
     ]
 }
