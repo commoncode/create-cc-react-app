@@ -1,15 +1,21 @@
 import { put, takeLatest } from "redux-saga/effects";
 
-import { loginError, logoutError, logoutSuccess, receiveLogin } from "actions";
-
+import { loginError, logoutError, logoutSuccess } from "actions";
 import { LOGIN_REQUEST, LOGOUT_REQUEST } from "constants/actionTypes";
 
-export function* fetchUser(action) {
+export function* fetchUser() {
   try {
-    const { email, password } = action.creds;
-    const { user } = { email, password };
+    // const { email, password } = action.creds;
+    // const options = {
+    //   body: JSON.stringify({ email, password }),
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    // };
 
-    yield put(receiveLogin(user));
+    // const { user } = yield call(fetchJSON, "/auth/login", options);
+
+    // yield put(receiveLogin(user));
+    yield put(loginError("Auth provider not configured"));
   } catch (e) {
     if (e.status === 400) {
       yield put(loginError("Incorrect email or password"));

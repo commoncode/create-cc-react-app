@@ -52,7 +52,7 @@ const InnerForm = ({
   <Form onSubmit={handleSubmit}>
     <FieldsetGroup>
       <Fieldset>
-        <Label for="email">EMAIL</Label>
+        <Label htmlFor="email">EMAIL</Label>
         <Input
           autoComplete="email"
           name="email"
@@ -66,7 +66,7 @@ const InnerForm = ({
         </ErrorMessage>
       </Fieldset>
       <Fieldset>
-        <Label for="password">PASSWORD</Label>
+        <Label htmlFor="password">PASSWORD</Label>
         <Input
           type="password"
           autoComplete="current-password"
