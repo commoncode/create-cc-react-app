@@ -8,7 +8,7 @@ cd my-awesome-react-app
 yarn start
 ```
 
-# Features
+# Tech Features
 - Eslint*
 - Prettier
 - Husky
@@ -21,6 +21,12 @@ yarn start
 - Styled Components
 - Storybook*
 
+# Application Features
+- Login screen
+- Private routes
+- Example 'Card' styled component
+
 # *TODOs
 - A lot of lint errors in new project
 - Storybook not working
+- Documentation related to auth action and saga
